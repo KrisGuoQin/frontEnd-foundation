@@ -86,5 +86,29 @@ animation :
 改变思路。
 2.有一些css只有添加了浏览器前缀时候才会生效，这可以通过gulp或者webpack或者
 其他工具实现
-3.
 
+
+
+<!--doctype作用与类型-->
+doctype是用来告诉浏览器应该使用哪种标准来加载网页并显示，如果不使用doctype，浏览器就无法知道HTML或者XHTML的类型，会严重影响布局。
+常用的类型有
+1.html5 ： <!DOCTYPE html>
+2.HTML 4.01 Strict：<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+3.HTML 4.01 Transitional ： <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+4.HTML 4.01 Frameset ： <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<!--严格模式和混杂模式如何区分，有何意义-->
+doctype不存在或者格式不正确就会导致文档以混杂模式显示文档，
+严格模式是以该浏览器的最高标准运行，支持更多特性
+混杂模式，页面以宽松的向后兼容的方式显示，模拟老式浏览器的工作方式防止老的站点无法正常工作。
+
+<!--gulp-connect原理-->
+1.在本地开启一个websocket服务
+2.使用node fs模块监听文件的修改
+3.当文件修改保存后，websocket发出文件修改的通知
+4.浏览器自动刷新，加载最新文件
+
+<!--为什么要跨域，跨域是什么-->
+1.只要协议，域名，端口号有一个不同，都会被当做不同的域，而他们之间的请求就是跨域操作
+2.当我们需要使用第三方服务时候，我们就需要跨域操作
+3.现在常用的跨域方法是JSONP方法。
