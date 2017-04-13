@@ -112,3 +112,12 @@ doctype不存在或者格式不正确就会导致文档以混杂模式显示文�
 1.只要协议，域名，端口号有一个不同，都会被当做不同的域，而他们之间的请求就是跨域操作
 2.当我们需要使用第三方服务时候，我们就需要跨域操作
 3.现在常用的跨域方法是JSONP方法。
+
+
+<!--不使用for循环，输出长度为100，值为数组项下标的数组-->
+1. Array.apply(null, {length : 100}).map((item, index) => index);
+2. [...Array(101).join('a')].map((item, index) => index);
+3. Array.from({length : 100}).map((item, index) => index);
+4. Array.from(Array(101).join('a')).map((item, index) => index);
+5. Array(100).fill('a').map((item, index) => index);
+6. [...Array(100)].map((item, index) => index);
