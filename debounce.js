@@ -1,20 +1,21 @@
-// 函数防抖
-// args : func, wait, ctx
-// return : func
-function debounce(func, wait, ctx) {
-    let timer = null;
+function debounce(method, wait) {
+    var timer = null;
     return function() {
-        if (timer) {
-            clearTimeout(timer);
-        }
+        var args = arguments,
+            ctx = this;
+        clearTimeout(timer);
         timer = setTimeout(function() {
-            func.call(ctx);
-        }, wait);
+            method.apply(ctx, args);
+        }, wait)
     }
-};
-
-function a() {
-    console.log('a');
 }
 
+var count = 0;
+
+function foo() {
+    count += 1;
+    console.log(count);
+}
+
+window.addEventListener('resize', debounce(foo, 1000), false);
 window.addEventListener('resize', debounce(a, 500), false);
